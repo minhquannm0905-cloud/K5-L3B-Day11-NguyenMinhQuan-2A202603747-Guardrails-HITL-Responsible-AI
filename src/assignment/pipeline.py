@@ -24,9 +24,8 @@ def is_egress_allowed(destination: str, payload: str) -> bool:
     parsed = urlparse(destination)
     hostname = (parsed.hostname or "").lower()
 
-    allowed_domain = (
-        hostname == "vinbank.vn" or hostname.endswith(".vinbank.vn")
-    )
+    allowed_domain = hostname == "api.vinbank.example"
+    
     if parsed.scheme != "https" or not allowed_domain:
         return False
 
